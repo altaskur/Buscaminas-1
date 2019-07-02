@@ -1,4 +1,4 @@
-# Project's name
+# Buscaminas
 
 ## Description
 
