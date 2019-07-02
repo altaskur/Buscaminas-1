@@ -19,6 +19,14 @@ He decidido estructurar el juego con DOM.
 
 ## Data structure
 
+
+```javascript
+class Game {
+  property,
+  method()
+}
+```
+
 - Clase juego(Pausa, inicio, final)
   -- Inicio, final, dibujar tablero
 - Clase bomba(anchura, rango de explosión, bombas en la partida)
