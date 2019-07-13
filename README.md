@@ -1,4 +1,4 @@
-# Project's name
+# Buscaminas
 
 ## Description
 
@@ -18,6 +18,14 @@ He decidido estructurar el juego con DOM.
 - Booster
 
 ## Data structure
+
+
+```javascript
+class Game {
+  property,
+  method()
+}
+```
 
 - Clase juego(Pausa, inicio, final)
   -- Inicio, final, dibujar tablero
