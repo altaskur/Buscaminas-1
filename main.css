@@ -1,0 +1,19 @@
+body {
+  margin-top: 200px;
+  text-align: center;
+}
+.col {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-color: grey;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  vertical-align: top;
+}
+.bomba {
+  background-color: red;
+}
+.revealed {
+  background-color: green;
+}
