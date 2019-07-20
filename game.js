@@ -8,8 +8,39 @@ class Game {
     };
     this.over = undefined;
     this.win = undefined;
+    this.config = undefined;
     this.arr = [];
+    this.zeros = [];
+    this.visited = [];
   }
+  startGame() {
+    const customize = document.getElementById("customize");
+    const customize_game = document.getElementById("customize-game");
+    const start = document.getElementById("start");
+    const button_start = document.getElementById("start-game");
+    customize_game.addEventListener("click", () => {
+      this.config = 1;
+      console.log("click");
+      console.log(this.config);
+      if (this.config === 1) {
+        customize.style = "display: block";
+        button_start.style = "display: none";
+        start.style = "display: none";
+        this.customGame(customize);
+      }
+    });
+    button_start.addEventListener("click", () => {
+      const tablero = document.getElementById("tablero");
+      tablero.style = "display: block";
+      button_start.style = "display: none";
+      start.style = "display: none";
+      this.status++;
+      this.time();
+      this.makeArray();
+      this.dibujarTablero();
+    });
+  }
+
   makeArray() {
     for (let i = 0; i < this.juego.rows; i++) {
       this.arr.push([]);
@@ -20,6 +51,8 @@ class Game {
     this.getBomb();
 
     window.arr = this.arr;
+    window.zeros = this.zeros;
+    window.visited = this.visited;
   }
   dibujarTablero() {
     this.getCountBombs();
@@ -45,20 +78,8 @@ class Game {
       }
       tablero.appendChild(row);
     }
+    // this.makeArryZeros();
     this.reveal();
-  }
-  startGame() {
-    if (this.status === 0) {
-      const button_start = document.getElementById("start-game");
-      button_start.addEventListener("click", () => {
-        const tablero = document.getElementById("tablero");
-        tablero.style = "display: block";
-        button_start.style = "display: none";
-        this.status++;
-        this.time();
-        this.dibujarTablero();
-      });
-    }
   }
   reveal() {
     const tablero = document.getElementById("tablero");
@@ -141,7 +162,7 @@ class Game {
         count += 1;
       }
     }
-    if (x < 7) {
+    if (this.juego.rows < x) {
       if (this.arr[x + 1][y] === "B") {
         console.log(
           `compruebo en x: ${x + 1} y:${y} tiene ${this.arr[x + 1][y]}`
@@ -167,7 +188,7 @@ class Game {
     }
   }
   time() {
-    let s = 0;
+    let s = 1;
     let m = 0;
     const p_minutes = document.getElementById("minutes");
     const p_seconds = document.getElementById("seconds");
@@ -190,5 +211,212 @@ class Game {
         clearInterval(game_time);
       }
     }, 1000);
+  }
+  test() {
+    for (let i = 0; i < positions.length; i++) {
+      console.log(positions[i].x);
+      console.log(positions[i].y);
+    }
+  }
+  /*
+  revealZeros(e, x, y) {
+    // this.zeros.push({ cord_x: x, cord_y: y });
+    console.log("la x es " + x);
+    console.log("la y es " + y);
+    //FIRST ZERO:
+    let get_x = parseInt(x);
+    let get_y = parseInt(y);
+
+    if (this.arr[get_x][get_y + 1] === 0) {
+      this.zeros.push({ cord_x: get_x, cord_y: get_y + 1 });
+    }
+    if (this.arr[get_x][get_y - 1] === 0) {
+      this.zeros.push({ cord_x: get_x, cord_y: get_y - 1 });
+    }
+    if (get_x > 0) {
+      if (this.arr[get_x - 1][get_y] === 0) {
+        this.zeros.push({ cord_x: get_x - 1, cord_y: get_y });
+      }
+      if (this.arr[get_x - 1][get_y + 1] === 0) {
+        this.zeros.push({ cord_x: get_x - 1, cord_y: get_y + 1 });
+      }
+      if (this.arr[get_x - 1][get_y - 1] === 0) {
+        this.zeros.push({ cord_x: get_x - 1, cord_y: get_y - 1 });
+      }
+    }
+    if (get_x < 7) {
+      if (this.arr[get_x + 1][get_y] === 0) {
+        this.zeros.push({ cord_x: get_x + 1, cord_y: get_y });
+      }
+      if (this.arr[get_x + 1][get_y + 1] === 0) {
+        this.zeros.push({ cord_x: get_x + 1, cord_y: get_y + 1 });
+      }
+      if (this.arr[get_x + 1][get_y - 1] === 0) {
+        this.zeros.push({ cord_x: get_x + 1, cord_y: get_y - 1 });
+      }
+    }
+
+    //for (let i = 0; i < this.zeros.length; i++) {
+    // console.log("LONGITUD: " + this.zeros.length);
+    //this.countZeros(e, get_x, get_y);
+    //}
+    this.countZeros(e, get_x, get_y, x, y);
+
+    e.target.textContent = this.arr[x][y];
+    e.target.classList += " revealed";
+    const cols = document.getElementsByClassName("col");
+    for (let i = 0; i < this.zeros.length; i++) {
+      for (let j = 0; j < cols.length; j++) {
+        let x1 = this.zeros[i].cord_x;
+        let y1 = this.zeros[i].cord_y;
+        let x2 = parseInt(cols[j].attributes[2].value);
+        let y2 = parseInt(cols[j].attributes[3].value);
+        if (x1 === x2 && y1 === y2) {
+          cols[j].textContent = this.arr[x1][y1];
+          cols[j].className += " revealed";
+        }
+      }
+    }
+  }
+  countZeros(e, get_x, get_y, x, y) {
+    console.log("Entro en contar 0");
+    let count = 0;
+    for (let j = 0; j < this.zeros.length; j++) {
+      var get_x = this.zeros[j].cord_x;
+      var get_y = this.zeros[j].cord_y;
+      if (this.checkNewZero(get_x, get_y)) {
+        console.log("true");
+      } else {
+        if (this.arr[get_x][get_y + 1] === 0) {
+          this.zeros.push({ cord_x: get_x, cord_y: get_y + 1 });
+          console.log("hago push");
+          count += 1;
+        }
+        if (this.arr[get_x][get_y - 1] === 0) {
+          this.zeros.push({ cord_x: get_x, cord_y: get_y - 1 });
+          console.log("hago push");
+          count += 1;
+        }
+        if (get_x > 0) {
+          if (this.arr[get_x - 1][get_y] === 0) {
+            this.zeros.push({ cord_x: get_x - 1, cord_y: get_y });
+            console.log("hago push");
+            count += 1;
+          }
+          if (this.arr[get_x - 1][get_y + 1] === 0) {
+            this.zeros.push({ cord_x: get_x - 1, cord_y: get_y + 1 });
+            console.log("hago push");
+            count += 1;
+          }
+          if (this.arr[get_x - 1][get_y - 1] === 0) {
+            this.zeros.push({ cord_x: get_x - 1, cord_y: get_y - 1 });
+            console.log("hago push");
+            count += 1;
+          }
+        }
+        if (get_x < 7) {
+          if (this.arr[get_x + 1][get_y] === 0) {
+            this.zeros.push({ cord_x: get_x + 1, cord_y: get_y });
+            console.log("hago push");
+            count += 1;
+          }
+          if (this.arr[get_x + 1][get_y + 1] === 0) {
+            this.zeros.push({ cord_x: get_x + 1, cord_y: get_y + 1 });
+            console.log("hago push");
+            count += 1;
+          }
+          if (this.arr[get_x + 1][get_y - 1] === 0) {
+            this.zeros.push({ cord_x: get_x + 1, cord_y: get_y - 1 });
+            console.log("hago push");
+            count += 1;
+          }
+        }
+      }
+    }
+    for (let i = 0; i < this.zeros.length; i++) {
+      if (i === this.zeros.length) {
+        console.log("Hago BREAK");
+        break;
+      } else {
+        this.countZeros(e, get_x, get_y, x, y);
+      }
+    }
+
+    console.log("EL count es:" + count);
+  }
+  checkNewZero(x, y) {
+    for (let i = 0; i < this.zeros.length; i++) {
+      if (x === this.zeros[i].cord_x && y === this.zeros[i].cord_y) {
+        console.log("Ya esta dentro");
+        return true;
+      }
+    }
+  }
+  */
+  /*
+  makeArryZeros() {
+    for (let i = 0; i < this.juego.rows; i++) {
+      this.visited.push([]);
+      for (let j = 0; j < this.juego.cols; j++) {
+        this.visited[i].push(true);
+      }
+    }
+  }
+  revealZeros(x, y) {
+    if (this.visited[x][y]) {
+      this.visited[x][y] = false;
+      if (x >= 0) {
+        if (this.juego.rows < x) {
+          if (this.arr[x][y] === 0) {
+            console.log("ENTRO 0");
+            this.revealZeros(x - 1, y);
+            console.log("ENTRO 1");
+            this.revealZeros(x - 1, y - 1);
+            console.log("ENTRO 2");
+            this.revealZeros(x - 1, y + 1);
+            this.revealZeros(x + 1, y);
+            this.revealZeros(x + 1, y - 1);
+            this.revealZeros(x + 1, y + 1);
+            this.revealZeros(x, y - 1);
+            this.revealZeros(x, y + 1);
+            this.draw(x, y);
+          }
+        }
+      }
+    }
+  }
+  draw(x, y) {
+    let cols = document.getElementsByClassName("cols");
+    for (let i = 0; i < cols.length; i++) {
+      let x2 = parseInt(cols[i].attributes[2].value);
+      let y2 = parseInt(cols[i].attributes[3].value);
+      if (x === x2 && y === y2) {
+        cols[i].textContent = this.arr[x][y];
+        cols[i].className += " revealed";
+      }
+    }
+  }
+  */
+  customGame(customize) {
+    const game_custom = document.getElementById("game-custom");
+    const tablero = document.getElementById("tablero");
+    const input_rows = document.getElementById("input-rows");
+    const input_cols = document.getElementById("input-cols");
+    const input_bombs = document.getElementById("input-bombs");
+
+    game_custom.addEventListener("click", e => {
+      customize.style = "display: none";
+      tablero.style = "display: block";
+      this.juego.rows = input_rows.value;
+      this.juego.cols = input_cols.value;
+      this.juego.mines = input_bombs.value;
+      console.log("rows" + this.juego.rows);
+      console.log(this.juego.cols);
+      console.log(this.juego.mines);
+      this.status++;
+      this.time();
+      this.makeArray();
+      this.dibujarTablero();
+    });
   }
 }

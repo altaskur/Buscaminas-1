@@ -1,6 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nanum Gothic", sans-serif;
+}
 body {
   margin-top: 200px;
   text-align: center;
+  background-color: #f74018;
 }
 .col {
   display: inline-block;
@@ -16,4 +24,37 @@ body {
 }
 .revealed {
   background-color: green;
+}
+.section {
+  display: flex;
+  margin-top: 80px;
+}
+.section2 {
+  width: 40%;
+  padding: 20px;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: justify;
+}
+#start-game {
+  width: 200px;
+  height: 100px;
+}
+#customize-game {
+  width: 200px;
+  height: 100px;
+}
+#game-custom {
+  margin-top: 40px;
+  width: 200px;
+  height: 100px;
+}
+#input-rows {
+  margin-top: 20px;
+}
+#input-cols {
+  margin-top: 20px;
+}
+#input-bombs {
+  margin-top: 20px;
 }
