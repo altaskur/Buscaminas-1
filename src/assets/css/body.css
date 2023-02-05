@@ -1,100 +1,23 @@
-:root{
-    --main-font: 24px;
+:root {
+  --main-font: 24px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style: none;
 }
 
-ul li{
-    list-style: none;
+body {
+  height: 100vh;
+  width: 100vw;
 }
 
-
-body div.inner{
-    height: 100vh;
-    display:grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 100px calc(100vw - 100px);
-}
-
-main{
-    display: grid;
-    grid-template-rows: min-content auto;
-}
-
-header{
-    font-size: var(--main-font);
-    
-}
-
-div.section-wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
-}
-
-div.section-wrapper section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: justify;
-    padding: 48px;
-}
-
-
-div.section-wrapper section h2{
-    text-align: center;
-}
-
-main div.section-wrapper section:nth-child(1){
-    background-color: rgb(127, 144, 255);
-}
-
-main div.section-wrapper section:nth-child(2){
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: rgb(134, 215, 255);
-    gap: 26px;
-}
-
-main div.section-wrapper section:nth-child(3){
-    background-color: rgb(127, 144, 255);
-
-}
-
-main div.section-wrapper section button{
-    border: none;
-    margin: 0;
-    height: 38px;
-    font-size: 1.5rem;
-}
-
-body div.modal{
-    background-color: gray;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    display: none;
-}
-
-body div.modal h3{
-    font-size: 1.5rem;
-}
-
-body div.modal fieldset{
-    margin: 0;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-div.modal fieldset button{
-    width: 10rem;
-    border-radius: 20px;
-    font-size: 1.3rem;
+.button {
+  border: 4px solid black;
+  padding: 0px 15px;
+  border-bottom-width: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }

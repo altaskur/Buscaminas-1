@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>MineSweeper</title>
-</head>
-<body>
-    <div class="modal">
-        <h3>Select your difficulty</h3>
-        <fieldset>
-            <button>Easy</button>
-            <button>Medium</button>
-            <button>Hard</button>
-        </fieldset>
-        
+  </head>
+  <body>
+    <div class="modal hidden">
+      <h3>Select your difficulty</h3>
+      <fieldset>
+        <input type="button" value="Easy" />
+        <input type="button" value="Medium" />
+        <input type="button" value="Hard" />
+      </fieldset>
     </div>
-    <div class="inner">
-        <aside>
-
-        </aside>
-        <main>
-            <header>
-                <h1>💣Minesweeper💣</h1>
-            </header>
-            <div class="section-wrapper">
-                <section>
-                    <h2>OBJECTIVE OF THE GAME</h2>
-                    <p>The objective of the game is to clear a minefield without detonating any! </p>
-                </section>
-                <section>
-                    <button>PLAY</button>
-                    <button>CUSTOMIZE GAME</button>
-                </section>
-                <section>
-                    <h2>RULES</h2>
-                    <ul>
-                        <li>The boxes have a number that indicates the number of mines in the surrounding cells</li>
-                        <br>
-                        <li>If you discover a square with a mine, the game is lost.</li>
-                        <br>
-                        <li>If a box with a 0 is found, it indicates that none of the neighboring cells has a mine and will be discovered automatically.</li>
-                        <br>
-                        <li>If you do not customize the game the board will be 8x8 and 8 bombs will be assigned. </li>
-                    </ul>
-                </section>
+    <main>
+      <section class="index">
+        <header>
+          <div class="button">Game</div>
+          <div class="button">Difficulty</div>
+          <h1>💣Minesweeper💣</h1>
+          <div class="button">Punctuations</div>
+          <div class="button">About</div>
+        </header>
+        <div class="section-wrapper">
+          <section>
+            <h2>OBJECTIVE OF THE GAME</h2>
+            <p>
+              The objective of the game is to clear a minefield without
+              detonating any!
+            </p>
+          </section>
+          <section>
+            <div>
+              <input type="button" class="button" value="PLAY" />
             </div>
-        </main>
-    </div>
-    
-</body>
+            <div>
+              <input type="button" class="button" value="CUSTOMIZE GAME" />
+            </div>
+          </section>
+          <section>
+            <h2>RULES</h2>
+            <ul>
+              <li>
+                The boxes have a number that indicates the number of mines in
+                the surrounding cells
+              </li>
+              <br />
+              <li>If you discover a square with a mine, the game is lost.</li>
+              <br />
+              <li>
+                If a box with a 0 is found, it indicates that none of the
+                neighboring cells has a mine and will be discovered
+                automatically.
+              </li>
+              <br />
+              <li>
+                If you do not customize the game the board will be 8x8 and 8
+                bombs will be assigned.
+              </li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="./index.js"></script>
+  </body>
 </html>
