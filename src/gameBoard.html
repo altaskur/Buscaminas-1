@@ -8,48 +8,24 @@
     <link rel="stylesheet" href="./assets/css/gameBoard/styles.css">
 </head>
 <body>
-    <aside>
-        <nav class="nav">
-            <ul class="wrapper">
-                <li class="item">
-                    Game
-                    <ul class="li-wrapper">
-                        <li class="item">
-                            New Game
-                        </li>
-                        <li class="item">
-                            Exit
-                        </li>
-                    </ul>
-                </li>
-                <li class="item">
-                    Difficulty
-                    <ul class="li-wrapper">
-                        <li class="item">
-                            Easy
-                        </li>
-                        <li class="item">
-                            Middle
-                        </li>
-                        <li class="item">
-                            Hard
-                        </li>
-                    </ul>
-                </li>
-                <li class="item">
-                    Punctuations
-                </li>
-                <li class="item">
-                    About
-                </li>
-            </ul>
-        </nav>
-    </aside>
+    <div class="modal hidden">
+        <fieldset>
+         <h2>You lose 😅</h2>
+         <div class="button-wrapper">
+            <input type="button" class="button
+         " value="Try again">
+         </div>
+         
+        </fieldset>
+      </div>
     <main>
         <header>
             <section class="game-information">
+                <div class="home">
+                    <p class="button">Inicio</p>
+                </div>
                 <div class="total-bombs">
-                    <p>Total 💣: 16</p>
+                    <p>Total 💣: 200</p>
                 </div>
                 <div class="refresh">
                     <p>Refresh</p>
@@ -59,9 +35,12 @@
                 </div>
             </section>
         </header>
-        <table class="board">
+        <section>
+            <table class="board" cellspacing="1.5">
 
-        </table>
+            </table>
+        </section>
     </main>
+    <script src="./game.js"></script>
 </body>
 </html>

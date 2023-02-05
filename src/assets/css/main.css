@@ -34,14 +34,17 @@ main div.section-wrapper section:nth-child(2) {
   background-color: rgb(134, 215, 255);
   gap: 26px;
 }
+
 main div.section-wrapper section:nth-child(2) div {
   height: 80px;
   text-align: center;
 }
+
 main div.section-wrapper section:nth-child(2) div input {
   height: 80px;
   width: 200px;
 }
+
 main div.section-wrapper section:nth-child(3) {
   background-color: rgb(127, 144, 255);
 }
@@ -51,35 +54,4 @@ main div.section-wrapper section button {
   margin: 0;
   height: 38px;
   font-size: 1.5rem;
-}
-
-body div.modal {
-  background-color: gray;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-}
-
-body div.modal h3 {
-  font-size: 1.5rem;
-}
-
-body div.modal fieldset {
-  margin: 0;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-div.modal fieldset button {
-  width: 10rem;
-  border-radius: 20px;
-  font-size: 1.3rem;
 }

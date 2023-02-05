@@ -1,0 +1,41 @@
+body div.modal {
+    background-color: rgb(127, 144, 255);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+body div.modal h3 {
+    font-size: 1.5rem;
+}
+
+body div.modal fieldset {
+    margin: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+div.modal fieldset button {
+    width: 10rem;
+    border-radius: 20px;
+    font-size: 1.3rem;
+}
+
+div.home {
+    display: flex;
+    justify-content: center;
+}
+
+div.home p.button {
+    width: fit-content;
+    border-radius: 20px;
+    font-size: 1.3rem;
+}

@@ -6,14 +6,3 @@ header {
 
   height: 80px;
 }
-
-.button:hover {
-  margin-top: 4px;
-  border-bottom-width: 5px;
-  transition: all 0.2s;
-}
-
-.button:active {
-  margin-top: 4px;
-  border-bottom-width: 2px;
-}

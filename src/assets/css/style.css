@@ -1,6 +1,7 @@
 @import url(./normalize.css);
 @import url(./font-styles.css);
 @import url(./helpers.css);
+@import url(./modal.css);
 @import url(./body.css);
 @import url(./header.css);
 @import url(./main.css);

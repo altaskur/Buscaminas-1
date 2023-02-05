@@ -7,4 +7,8 @@ buttons[1].addEventListener('click', () => {
   index.classList.add('hidden');
   modal.classList.remove('hidden');
   modal.classList.add('show');
+
+
 });
+
+

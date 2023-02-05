@@ -1,10 +1,12 @@
 :root {
   --main-font: 24px;
 }
+
 ul {
   margin: 0;
   padding: 0;
 }
+
 ul li {
   list-style: none;
 }
@@ -12,12 +14,4 @@ ul li {
 body {
   height: 100vh;
   width: 100vw;
-}
-
-.button {
-  border: 4px solid black;
-  padding: 0px 15px;
-  border-bottom-width: 8px;
-  border-radius: 8px;
-  cursor: pointer;
 }

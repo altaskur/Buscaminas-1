@@ -1,0 +1,21 @@
+table {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table tr td {
+    width: 30px;
+    height: 30px;
+    border-spacing: 0;
+
+    border: .5px solid gray;
+
+    text-align: center;
+}
+
+.red {
+    background-color: aqua;
+}
