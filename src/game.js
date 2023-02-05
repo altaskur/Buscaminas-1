@@ -172,7 +172,7 @@ function timer() {
 }
 
 // console.log(bombsPositions)
-
+//
 function changeCell(element) {
     if (element.classList.contains("ux-undiscovered")) {
         if (element.target.textContent == "") {
